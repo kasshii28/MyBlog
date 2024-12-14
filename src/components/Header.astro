@@ -1,0 +1,27 @@
+---
+import { SITE_TITLE } from '../consts';
+---
+
+<header class="bg-white shadow-sm">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-gray-900">
+        {SITE_TITLE}
+      </a>
+      <div class="flex items-center space-x-6">
+        <a href="/blog" class="text-gray-600 hover:text-gray-900">
+          <span class="material-icons">article</span>
+          <span>Blog</span>
+        </a>
+        <a href="/about" class="text-gray-600 hover:text-gray-900">
+          <span class="material-icons">person</span>
+          <span>About</span>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="text-gray-600 hover:text-gray-900">
+          <span class="material-icons">code</span>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

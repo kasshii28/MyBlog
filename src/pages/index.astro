@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import BlogCard from '../components/BlogCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 4);
+---
+
+<Layout>
+  <section class="py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Welcome to My Blog</h1>
+      <p class="text-xl text-gray-600">Sharing thoughts and experiences about technology and development</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="/blog"
+        class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors"
+      >
+        <span>View All Posts</span>
+        <span class="material-icons ml-2">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+</Layout>
